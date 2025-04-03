@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.data.model.OrderRequest
+import com.example.serenitea.glovalvariable.GlobalVariable.userName
 import com.example.serenitea.ui.order.OrderResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -67,7 +68,7 @@ class AddCard : AppCompatActivity() {
         // Handle order submission
         orderButton.setOnClickListener {
             val totalPrice = price * quantity
-            val customerName = "panorth" // Replace with actual customer name from session
+            val customerName = userName // Replace with actual customer name from session
 
             val orderRequest = OrderRequest(customerName, itemId, quantity, totalPrice)
 

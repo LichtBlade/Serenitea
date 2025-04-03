@@ -1,9 +1,11 @@
 package com.example.serenitea.ui.order
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.data.model.Order
+import com.example.serenitea.glovalvariable.GlobalVariable
+import com.example.serenitea.ui.CompletedActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +23,8 @@ import retrofit2.Response
 class PreparingActivity : AppCompatActivity() {
     private lateinit var orderListView: ListView
     private lateinit var orderList: MutableList<Order>
+    private lateinit var ofd: TextView
+    private lateinit var completed: TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +40,19 @@ class PreparingActivity : AppCompatActivity() {
         orderListView = findViewById(R.id.listview_preparing)
         orderList = mutableListOf()
 
+        completed = findViewById(R.id.textView7)
+        ofd = findViewById(R.id.textView6)
+
+
+        completed.setOnClickListener {
+            val intent = Intent(this, CompletedActivity::class.java)
+            startActivity(intent)
+        }
+
+        ofd.setOnClickListener {
+            val intent = Intent(this, OutForDeliveryActivity::class.java)
+            startActivity(intent)
+        }
 
 
         fetchOrders()
@@ -47,7 +66,7 @@ class PreparingActivity : AppCompatActivity() {
                     response.body()?.let {
                         // Filter the orders to only include those with status "Add to Cart"
                         val filteredOrders = it.filter { order ->
-                            order.status == "Pending"
+                            order.status == "Pending" && order.customer_name == GlobalVariable.userName
                         }
 
                         // Clear the previous list and add the filtered orders

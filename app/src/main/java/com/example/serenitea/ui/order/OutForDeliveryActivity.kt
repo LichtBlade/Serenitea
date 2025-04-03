@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.data.model.Order
+import com.example.serenitea.glovalvariable.GlobalVariable
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,7 +49,7 @@ class OutForDeliveryActivity : AppCompatActivity() {
                     response.body()?.let {
                         // Filter the orders to only include those with status "Add to Cart"
                         val filteredOrders = it.filter { order ->
-                            order.status == "ofd"
+                            order.status == "ofd" && order.customer_name == GlobalVariable.userName
                         }
 
                         // Clear the previous list and add the filtered orders

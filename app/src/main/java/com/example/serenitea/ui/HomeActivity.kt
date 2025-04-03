@@ -7,6 +7,7 @@ import Category
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,11 +15,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
+import com.example.serenitea.ui.order.PreparingActivity
 
 import retrofit2.Call
 import retrofit2.Response
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var homePage: ImageView
+    private lateinit var myCart: ImageView
+    private lateinit var statusPage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +33,19 @@ class HomeActivity : AppCompatActivity() {
         Log.d("HomeActivity", "HomeActivity started!")
 
         val userAccountTextView: TextView = findViewById(R.id.useraccount)
-
+        homePage = findViewById(R.id.imageView11)
+        myCart = findViewById(R.id.mycart)
+        statusPage = findViewById(R.id.pay)
         userAccountTextView.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        statusPage.setOnClickListener{
+            val intent = Intent(this, PreparingActivity::class.java)
+            startActivity(intent)
+        }
+        myCart.setOnClickListener {
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
         }

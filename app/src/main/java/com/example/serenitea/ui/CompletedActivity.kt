@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.data.model.Order
+import com.example.serenitea.glovalvariable.GlobalVariable
 import com.example.serenitea.ui.order.OrderAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -51,7 +52,7 @@ class CompletedActivity : AppCompatActivity() {
                     response.body()?.let {
                         // Filter orders with "complete" status
                         val filteredOrders = it.filter { order ->
-                            order.status == "complete"
+                            order.status == "complete" && order.customer_name == GlobalVariable.userName
                         }
 
                         // Clear previous orders and add filtered ones

@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.data.model.Order
+import com.example.serenitea.glovalvariable.GlobalVariable
 import com.example.serenitea.ui.order.OrderAdapter
 import com.example.serenitea.ui.order.OutForDeliveryActivity
 import com.example.serenitea.ui.order.PreparingActivity
@@ -26,9 +27,7 @@ class CartActivity : AppCompatActivity() {
 
     private lateinit var orderListView: ListView
     private lateinit var orderList: MutableList<Order>
-    private lateinit var preparing: TextView
-    private lateinit var ofd: TextView
-    private lateinit var completed: TextView
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,23 +45,8 @@ class CartActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        completed = findViewById(R.id.completed)
-        ofd = findViewById(R.id.ofd)
-        preparing = findViewById(R.id.Preparing)
 
-        completed.setOnClickListener {
-            val intent = Intent(this, CompletedActivity::class.java)
-            startActivity(intent)
-        }
 
-        ofd.setOnClickListener {
-            val intent = Intent(this, OutForDeliveryActivity::class.java)
-            startActivity(intent)
-        }
-        preparing.setOnClickListener{
-            val intent = Intent(this, PreparingActivity::class.java)
-            startActivity(intent)
-        }
         button_checkOut.setOnClickListener{
             val intent = Intent(this, ConfirmationActivity::class.java)
             startActivity(intent)
@@ -79,7 +63,7 @@ class CartActivity : AppCompatActivity() {
                     response.body()?.let {
                         // Filter the orders to only include those with status "Add to Cart"
                         val filteredOrders = it.filter { order ->
-                            order.status == "Add to Cart"
+                            order.status == "Add to Cart" && order.customer_name == GlobalVariable.userName
                         }
 
                         // Clear the previous list and add the filtered orders

@@ -7,6 +7,9 @@ import com.example.serenitea.data.model.Order
 import com.example.serenitea.data.model.OrderRequest
 import com.example.serenitea.data.model.OrderRequest_
 import com.example.serenitea.data.model.OrderUpdateRequest
+import com.example.serenitea.ui.authentication.dataclass.LoginRequest
+import com.example.serenitea.ui.authentication.dataclass.LoginResponse
+import com.example.serenitea.ui.authentication.dataclass.UserRequest
 import com.example.serenitea.ui.order.OrderResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -32,4 +35,10 @@ interface ApiService {
 
     @PUT("confirmation_order.php") // Change this to your actual API URL
     fun updateOrders(@Body request: OrderUpdateRequest): Call<OrderResponse>
+
+    @POST("register.php")  // Make sure this matches your backend endpoint
+    fun registerUser(@Body request: UserRequest): Call<Map<String, String>>
+
+    @POST("login_user.php") // Adjust to your actual endpoint
+    fun loginUser(@Body request: LoginRequest): Call<LoginResponse>
 }

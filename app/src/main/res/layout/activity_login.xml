@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.authentication.LoginActivity"
+    android:background="@color/simplebackgroundcolor2">
+
+    <!-- Logo -->
+
+    <!-- Email Icon -->
+    <ImageView
+        android:id="@+id/imageView60"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/puking_may_tahi" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="41dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView60"
+        app:srcCompat="@drawable/userr" />
+
+    <!-- Email Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/imageView7"
+        app:layout_constraintTop_toBottomOf="@id/imageView60"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"/>
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/email_input"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="@drawable/custom_button"
+        android:hint="Enter your email"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView7"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="40dp"/>
+
+    <!-- Password Icon -->
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/lock_icon_7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_input"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Password Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/imageView4"
+        app:layout_constraintTop_toBottomOf="@id/email_input"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/password_hint"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="@drawable/custom_button"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView4"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="40dp"/>
+
+    <!-- Forgot Password -->
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:clickable="true"
+        android:text="Forgot Password?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_hint"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:backgroundTint="@color/lightbrown"
+        android:text="Login"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forgotpassword"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Don't Have an Account? -->
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Donâ€™t have an account?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnlogin"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Sign Up -->
+    <TextView
+        android:id="@+id/sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:clickable="true"
+        android:text="Sign up"
+        android:textColor="@color/lightbrown"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/textView14"
+        app:layout_constraintTop_toTopOf="@id/textView14"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
