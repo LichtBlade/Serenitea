@@ -25,6 +25,7 @@ class PreparingActivity : AppCompatActivity() {
     private lateinit var orderList: MutableList<Order>
     private lateinit var ofd: TextView
     private lateinit var completed: TextView
+    private lateinit var btnBack: TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,9 @@ class PreparingActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        btnBack = findViewById(R.id.btn_back1)
+
+        btnBack.setOnClickListener {  }
 
         orderListView = findViewById(R.id.listview_preparing)
         orderList = mutableListOf()

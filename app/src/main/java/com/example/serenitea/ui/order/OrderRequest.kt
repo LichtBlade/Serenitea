@@ -4,7 +4,9 @@ data class OrderRequest(
     val customer_name: String,
     val item_id: Int,
     val quantity: Int,
-    val total_price: Double
+    val total_price: Double,
+    val sugar_level: String,
+    val add_ons: String? = null
 )
 
 

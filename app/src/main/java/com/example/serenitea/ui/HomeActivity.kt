@@ -51,35 +51,35 @@ class HomeActivity : AppCompatActivity() {
         }
 
 
-        setupCategoriesRecyclerView()
+        //setupCategoriesRecyclerView()
         setupBestOffersRecyclerView()
     }
 
-    private fun setupCategoriesRecyclerView() {
-        val recyclerViewCategories: RecyclerView = findViewById(R.id.recyclerView_category)
-        recyclerViewCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        RetrofitClient.apiService.getCategories().enqueue(object : retrofit2.Callback<List<Category>> {
-            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
-                if (response.isSuccessful) {
-                    val categoriesList = response.body() ?: emptyList()
-
-                    val uniqueCategories = categoriesList
-                        .groupBy { it.categoryName }
-                        .map { it.value.first() }
-
-                    recyclerViewCategories.adapter = CategoriesAdapter(uniqueCategories)
-                    Log.d("Home", "Fetched Categories: $categoriesList")
-                } else {
-                    Log.e("Home", "Failed to fetch categories: ${response.errorBody()?.string()}")
-                }
-            }
-
-            override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                Log.e("Home", "Error fetching categories", t)
-            }
-        })
-    }
+//    private fun setupCategoriesRecyclerView() {
+//        val recyclerViewCategories: RecyclerView = findViewById(R.id.recyclerView_category)
+//        recyclerViewCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//
+//        RetrofitClient.apiService.getCategories().enqueue(object : retrofit2.Callback<List<Category>> {
+//            override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
+//                if (response.isSuccessful) {
+//                    val categoriesList = response.body() ?: emptyList()
+//
+//                    val uniqueCategories = categoriesList
+//                        .groupBy { it.categoryName }
+//                        .map { it.value.first() }
+//
+//                    recyclerViewCategories.adapter = CategoriesAdapter(uniqueCategories)
+//                    Log.d("Home", "Fetched Categories: $categoriesList")
+//                } else {
+//                    Log.e("Home", "Failed to fetch categories: ${response.errorBody()?.string()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<List<Category>>, t: Throwable) {
+//                Log.e("Home", "Error fetching categories", t)
+//            }
+//        })
+//    }
 
 
     private fun setupBestOffersRecyclerView() {

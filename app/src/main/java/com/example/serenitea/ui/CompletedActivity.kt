@@ -52,7 +52,7 @@ class CompletedActivity : AppCompatActivity() {
                     response.body()?.let {
                         // Filter orders with "complete" status
                         val filteredOrders = it.filter { order ->
-                            order.status == "complete" && order.customer_name == GlobalVariable.userName
+                            (order.status == "complete" || order.status == "delivered") && order.customer_name == GlobalVariable.userName
                         }
 
                         // Clear previous orders and add filtered ones

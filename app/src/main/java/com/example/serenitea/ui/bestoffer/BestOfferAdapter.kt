@@ -29,6 +29,17 @@ class BestOfferAdapter(private val bestOffers: List<BestOffer>) :
             "matcha" -> R.drawable.matcha
             "espresso" -> R.drawable.espresso
             "latte" -> R.drawable.americano
+            "cookies and cream" -> R.drawable.cookies_and_cream_
+            "dark chocolate" -> R.drawable.dark_chocolate
+            "ube" -> R.drawable.ube
+            "wintermelon" -> R.drawable.wintermelon
+            "chocolate" -> R.drawable.chocolate
+            "okinawa" -> R.drawable.okinawa
+            "honeydew" -> R.drawable.honeydew
+            "mango" -> R.drawable.mango
+            "milk coffee" -> R.drawable.milk_coffee
+            "mocha coffee" -> R.drawable.mocha_cookie
+
             else -> R.drawable.americano  // Default placeholder image if no match
         }
 
@@ -44,7 +55,11 @@ class BestOfferAdapter(private val bestOffers: List<BestOffer>) :
                 putExtra("name", offer.name)
                 putExtra("image", imageResId)  // Pass the image resource ID
                 putExtra("description", offer.description)
-                putExtra("price", offer.largePrice)
+
+                putExtra("largePrice", offer.largePrice)
+                putExtra("MediumPrice", offer.mediumPrice)
+                putExtra("smallPrice", offer.smallPrice)
+
                 putExtra("item_id", offer.id)
             }
             context.startActivity(intent)

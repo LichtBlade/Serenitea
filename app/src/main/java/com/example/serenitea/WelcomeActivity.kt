@@ -2,36 +2,29 @@ package com.example.serenitea
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.lifecycleScope
-import com.example.serenitea.ui.AddCard
 import com.example.serenitea.ui.HomeActivity
-import com.example.serenitea.ui.authentication.LoginActivity
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity() {
+    private lateinit var getStart: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_welcome)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        getStart = findViewById(R.id.button5)
 
-        lifecycleScope.launch {
-            delay(1500) // 1.5 seconds
-            val intent = Intent(this@MainActivity, WelcomeActivity::class.java)
-            startActivity(intent)
-            Log.d("meow", "Enter")
-            finish()
+        getStart.setOnClickListener{
+            startActivity(Intent(this, Welcome1Activity::class.java))
+
         }
     }
-
 }
