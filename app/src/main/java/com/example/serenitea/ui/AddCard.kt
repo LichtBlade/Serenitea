@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.serenitea.R
 import com.example.serenitea.data.api.RetrofitClient
@@ -183,14 +184,17 @@ class AddCard : AppCompatActivity() {
 
     private fun setupSizeButtons() {
         selectedSmall.setOnClickListener {
+            Toast.makeText(this, "Selected size: Small", Toast.LENGTH_SHORT).show()
             selectSize(smallPrice, selectedSmall)
         }
 
         selectedMedium.setOnClickListener {
+            Toast.makeText(this, "Selected size: Medium", Toast.LENGTH_SHORT).show()
             selectSize(mediumPrice, selectedMedium)
         }
 
         selectedLarge.setOnClickListener {
+            Toast.makeText(this, "Selected size: Large", Toast.LENGTH_SHORT).show()
             selectSize(largePrice, selectedLarge)
         }
 
@@ -205,15 +209,16 @@ class AddCard : AppCompatActivity() {
     }
 
     private fun updateButtonStyles(selected: Button) {
-        val defaultStyle = R.drawable.default_button_background
-        val selectedStyle = R.drawable.selected_button_background
+        val defaultColor = ContextCompat.getColor(this, R.color.lightbrown)
+        val selectedColor = ContextCompat.getColor(this, R.color.black)
 
-        selectedSmall.setBackgroundResource(defaultStyle)
-        selectedMedium.setBackgroundResource(defaultStyle)
-        selectedLarge.setBackgroundResource(defaultStyle)
+        selectedSmall.setBackgroundColor(defaultColor)
+        selectedMedium.setBackgroundColor(defaultColor)
+        selectedLarge.setBackgroundColor(defaultColor)
 
-        selected.setBackgroundResource(selectedStyle)
+        selected.setBackgroundColor(selectedColor)
     }
+
 
     private fun placeOrder() {
         val customerName = userName

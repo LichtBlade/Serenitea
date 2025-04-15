@@ -12,10 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.serenitea.R
+import com.example.serenitea.WelcomeActivity
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.data.model.Order
 import com.example.serenitea.glovalvariable.GlobalVariable
 import com.example.serenitea.ui.CompletedActivity
+import com.example.serenitea.ui.HomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +28,8 @@ class PreparingActivity : AppCompatActivity() {
     private lateinit var ofd: TextView
     private lateinit var completed: TextView
     private lateinit var btnBack: TextView
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +43,10 @@ class PreparingActivity : AppCompatActivity() {
         }
         btnBack = findViewById(R.id.btn_back1)
 
-        btnBack.setOnClickListener {  }
+        btnBack.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
         orderListView = findViewById(R.id.listview_preparing)
         orderList = mutableListOf()

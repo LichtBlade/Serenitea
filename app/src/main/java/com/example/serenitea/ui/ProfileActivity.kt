@@ -1,5 +1,6 @@
 package com.example.serenitea.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -17,7 +18,9 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var tv_emailProfile: TextView
     private lateinit var tv_passProfile: TextView
 
+    private lateinit var backButton: TextView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,7 +33,8 @@ class ProfileActivity : AppCompatActivity() {
             insets
         }
 
-
+        backButton = findViewById(R.id.btn_back3)
+        backButton.setOnClickListener { finish() }
         tv_profileName = findViewById(R.id.tv_profileName)
         tv_emailProfile = findViewById(R.id.tv_emailProfile)
         tv_passProfile = findViewById(R.id.tv_passProfile)

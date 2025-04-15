@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.serenitea.glovalvariable.GlobalVariable
 import com.example.serenitea.ui.HomeActivity
 
 class WelcomeActivity : AppCompatActivity() {
@@ -24,7 +25,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         getStart.setOnClickListener{
             startActivity(Intent(this, Welcome1Activity::class.java))
-
+            GlobalVariable.userName
         }
     }
 }

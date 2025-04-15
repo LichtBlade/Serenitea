@@ -35,12 +35,12 @@ class BestOfferAdapter(private val bestOffers: List<BestOffer>) :
             "wintermelon" -> R.drawable.wintermelon
             "chocolate" -> R.drawable.chocolate
             "okinawa" -> R.drawable.okinawa
-            "honeydew" -> R.drawable.honeydew
+            "honeydrew" -> R.drawable.honeydew
             "mango" -> R.drawable.mango
             "milk coffee" -> R.drawable.milk_coffee
-            "mocha coffee" -> R.drawable.mocha_cookie
+            "mocha cookie" -> R.drawable.mocha_cookie
 
-            else -> R.drawable.americano  // Default placeholder image if no match
+            else -> R.drawable.matcha  // Default placeholder image if no match
         }
 
         // Load image using Glide

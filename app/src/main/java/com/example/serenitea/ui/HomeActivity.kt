@@ -41,6 +41,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         statusPage.setOnClickListener{
             val intent = Intent(this, PreparingActivity::class.java)
             startActivity(intent)

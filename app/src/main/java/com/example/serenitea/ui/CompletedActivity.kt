@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,7 @@ class CompletedActivity : AppCompatActivity() {
 
     private lateinit var orderListView: ListView
     private var orderList: MutableList<Order> = mutableListOf()
-
+    private lateinit var backButton: TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,8 @@ class CompletedActivity : AppCompatActivity() {
             insets
         }
 
+        backButton = findViewById(R.id.btn_back5)
+        backButton.setOnClickListener { finish() }
         // Initialize ListView and fetch orders
         orderListView = findViewById(R.id.listview_completed)
 

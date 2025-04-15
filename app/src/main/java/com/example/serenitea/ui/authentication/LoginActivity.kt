@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.serenitea.R
+import com.example.serenitea.WelcomeActivity
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.glovalvariable.GlobalVariable.email_
 import com.example.serenitea.glovalvariable.GlobalVariable.password_
@@ -26,12 +28,20 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var inputPassword: EditText
     private lateinit var btnLogin: Button
 
+    private lateinit var tvSignUp: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         inputEmail = findViewById(R.id.email_input)
         inputPassword = findViewById(R.id.password_hint)
+        tvSignUp = findViewById(R.id.sign_up)
+        tvSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
         btnLogin = findViewById(R.id.btnlogin)
 
         btnLogin.setOnClickListener {

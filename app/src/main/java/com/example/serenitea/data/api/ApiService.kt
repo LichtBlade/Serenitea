@@ -20,9 +20,8 @@ import retrofit2.http.PUT
 interface ApiService {
 
 
-    @GET("fetch_items.php")
-    fun getCategories(): Call<List<Category>>
-
+//    @GET("fetch_items.php")
+//    fun getCategories(): Call<List<Category>>
 
     @GET("fetch_items.php")
     fun getBestOffers(): Call<List<BestOffer>>

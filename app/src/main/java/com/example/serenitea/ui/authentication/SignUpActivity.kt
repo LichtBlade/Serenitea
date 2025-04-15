@@ -1,11 +1,13 @@
 package com.example.serenitea.ui.authentication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.serenitea.R
+import com.example.serenitea.WelcomeActivity
 import com.example.serenitea.data.api.RetrofitClient
 import com.example.serenitea.ui.authentication.dataclass.UserRequest
 import retrofit2.Call
@@ -19,6 +21,8 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var inputPass2: TextView
     private lateinit var btnSignUp: Button
 
+    private lateinit var tvLogin:  TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -28,7 +32,12 @@ class SignUpActivity : AppCompatActivity() {
         inputPass = findViewById(R.id.et_pass)
         inputPass2 = findViewById(R.id.et_pass2)
         btnSignUp = findViewById(R.id.btnsignup)
+        tvLogin = findViewById(R.id.Login)
 
+        tvLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
         btnSignUp.setOnClickListener {
             val name = inputName.text.toString().trim()
             val email = inputEmail.text.toString().trim()

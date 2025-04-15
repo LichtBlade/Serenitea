@@ -124,8 +124,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_bestOffer"
-                android:layout_width="370dp"
-                android:layout_height="369dp"
+                android:layout_width="383dp"
+                android:layout_height="514dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.39"

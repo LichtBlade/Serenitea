@@ -27,7 +27,7 @@ class CartActivity : AppCompatActivity() {
 
     private lateinit var orderListView: ListView
     private lateinit var orderList: MutableList<Order>
-
+    private lateinit var backButton: TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,8 @@ class CartActivity : AppCompatActivity() {
             insets
         }
 
+        backButton = findViewById(R.id.btn_back4)
+        backButton.setOnClickListener { finish() }
 
         button_checkOut.setOnClickListener{
             val intent = Intent(this, ConfirmationActivity::class.java)

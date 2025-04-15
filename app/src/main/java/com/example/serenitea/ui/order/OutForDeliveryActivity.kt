@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,7 @@ import retrofit2.Response
 class OutForDeliveryActivity : AppCompatActivity() {
     private lateinit var orderListView: ListView
     private lateinit var orderList: MutableList<Order>
+    private lateinit var backButton: TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +32,11 @@ class OutForDeliveryActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        backButton = findViewById(R.id.btn_back2)
         orderListView = findViewById(R.id.listView_ofd)
         orderList = mutableListOf()
 
-
+        backButton.setOnClickListener { finish() }
 
         fetchOrders()
     }
